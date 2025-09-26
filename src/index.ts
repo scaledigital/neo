@@ -1,12 +1,15 @@
 export default {
   async fetch(request, env) {
+    
     const inputs = {
       prompt: "adorable dog",
+      width: 400,
+      height: 600,
     };
 
     const response = await env.AI.run(
       "@cf/stabilityai/stable-diffusion-xl-base-1.0",
-      inputs,
+      inputs
     );
 
     return new Response(response, {
@@ -15,4 +18,4 @@ export default {
       },
     });
   },
-} satisfies ExportedHandler<Env>;
+} satisfies ExportedHandler;
